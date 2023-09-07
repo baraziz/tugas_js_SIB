@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+
+   <script>
+      let pegawai = "Ridwan",
+         jabatan = "manager",
+         statusMenikah = true;
+
+      let gaji, tujangan, bpjs, tunjaganKeluarga;
+
+      if (jabatan == "manager") {
+         gaji = 15000000;
+      } else if (jabatan == "asisten manager") {
+         gaji = 10000000;
+      } else {
+         gaji = 5000000;
+      }
+      tujangan = gaji * (15 / 100);
+      bpjs = gaji * (10 / 100);
+
+      tunjaganKeluarga = (statusMenikah === true) ? gaji * (20 / 100) : 0;
+
+      document.write(`
+      Gaji : ${gaji} <br> Tujangan : ${tujangan} <br> BPJS : ${bpjs} <br> Tunjangan Keluarga : ${tunjaganKeluarga}
+      `);
+
+   </script>
+
+</body>
+
+</html>
