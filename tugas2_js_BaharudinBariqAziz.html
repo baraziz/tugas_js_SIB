@@ -15,6 +15,7 @@
          jabatan = "manager",
          statusMenikah = true;
 
+      // element gaji
       let gaji, tujangan, bpjs, tunjaganKeluarga;
 
       if (jabatan == "manager") {
@@ -24,16 +25,74 @@
       } else {
          gaji = 5000000;
       }
+
+      //perhitungan gaji
       tujangan = gaji * (15 / 100);
       bpjs = gaji * (10 / 100);
-
       tunjaganKeluarga = (statusMenikah === true) ? gaji * (20 / 100) : 0;
 
-      document.write(`
-      Gaji : ${gaji} <br> Tujangan : ${tujangan} <br> BPJS : ${bpjs} <br> Tunjangan Keluarga : ${tunjaganKeluarga}
-      `);
+      //total gaji
+      let totalGaji = gaji + tujangan + bpjs + tunjaganKeluarga;
+
 
    </script>
+   <table border="1" cellpadding="5">
+      <tr>
+         <td>Nama</td>
+         <td>
+            <script>document.write(pegawai)</script>
+         </td>
+      </tr>
+      <tr>
+         <td>Jabatan</td>
+         <td>
+            <script>document.write(jabatan)</script>
+         </td>
+      </tr>
+      <tr>
+         <td>Status Menikah</td>
+         <td>
+            <script>document.write((statusMenikah) === true ? "Menikah" : "Belum Menikah")</script>
+         </td>
+      </tr>
+   </table>
+
+   <br>
+
+   <table border="1" cellpadding="5">
+      <tr>
+         <td>Gaji</td>
+         <td>
+            <script>document.write(gaji)</script>
+         </td>
+      </tr>
+      <tr>
+         <td>Tunjangan</td>
+         <td>
+            <script>document.write(tujangan)</script>
+         </td>
+      </tr>
+      <tr>
+         <td>BPJS</td>
+         <td>
+            <script>document.write(bpjs)</script>
+         </td>
+      </tr>
+      <tr>
+         <td>Tunjangan Keluarga</td>
+         <td>
+            <script>document.write(tunjaganKeluarga)</script>
+         </td>
+      </tr>
+      <tr>
+         <td><b>Total Gaji</b></td>
+         <td>
+            <b>
+               <script>document.write(totalGaji)</script>
+            </b>
+         </td>
+      </tr>
+   </table>
 
 </body>
 
