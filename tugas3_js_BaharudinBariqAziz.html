@@ -1,3 +1,126 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
 
-</script>
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <script>
+      //Deklarasi pegawai-pegawai
+      const pegawais = [];
+
+      //input jabatan
+      for (let i = 0; i < 10; i++) {
+         if (i < 2) {
+            pegawais.push({
+               jabatan: "manager"
+            });
+         } else if (i < 5) {
+            pegawais.push({
+               jabatan: "asisten manager"
+            });
+         } else if (i < 8) {
+            pegawais.push({
+               jabatan: "supervisor"
+            });
+         } else {
+            pegawais.push({
+               jabatan: "staff"
+            });
+         }
+      }
+
+      for (const pegawai of pegawais) {
+         switch (pegawai.jabatan) {
+            case "manager":
+               pegawai.gaji = 15000000;
+               break;
+            case "asisten manager":
+               pegawai.gaji = 10000000;
+               break;
+            case "supervisor":
+               pegawai.gaji = 7000000;
+               break;
+            case "staff":
+               pegawai.gaji = 4000000;
+               break;
+         }
+      }
+
+      //tunjagan, gaji kotor
+      let tunjaganJabatan, tunjaganKesehatan, gajiKotor, gajiBersih, nomor = 1;
+      for (const pegawai of pegawais) {
+         tunjaganJabatan = pegawai.gaji * (20 / 100);
+         tunjaganKesehatan = pegawai.gaji * (10 / 100);
+         gajiKotor = pegawai.gaji + tunjaganJabatan + tunjaganKesehatan;
+         pegawai.tunjaganJabatan = tunjaganJabatan
+         pegawai.tunjaganKesehatan = tunjaganKesehatan
+         pegawai.gajiKotor = gajiKotor
+         pegawai.agama = (nomor % 2 !== 0) ? "islam" : "non-muslim";
+         nomor++;
+      }
+
+      //gaji bersih
+      for (const pegawai of pegawais) {
+         pegawai.gajiBersih = (pegawai.agama == "islam" && pegawai.gaji >= 7000000) ?
+            (pegawai.gajiKotor - (pegawai.gajiKotor * (2.5 / 100))) : pegawai.gajiKotor;
+      }
+
+   </script>
+
+   <table border="1" cellspacing="0" cellpadding="8">
+      <tr bgcolor="gray">
+         <th>Pegawai</th>
+         <th>Jabatan</th>
+         <th>Gaji</th>
+         <th>Tunjagan Jabatan</th>
+         <th>Tunjagan Kesehatan</th>
+         <th>Gaji Kotor</th>
+         <th>Agama</th>
+         <th>Gaji Bersih</th>
+      </tr>
+      <script>
+         nomor = 1;
+         let warna;
+         for (const pegawai of pegawais) {
+            warna = (pegawai.agama == "islam") ? "yellow" : "#5353ec";
+            document.write(`
+               <tr align="center" bgcolor=${warna} >
+                  <td>
+                     ${nomor}
+                  </td>
+                  <td>
+                     ${pegawai.jabatan}
+                  </td>
+                  <td>
+                     ${pegawai.gaji}
+                  </td>
+                  <td>
+                     ${pegawai.tunjaganJabatan}
+                  </td>
+                  <td>
+                     ${pegawai.tunjaganKesehatan}
+                  </td>
+                  <td>
+                     ${pegawai.gajiKotor}
+                  </td>
+                  <td>
+                     ${pegawai.agama}
+                  </td>
+                  <td>
+                     ${pegawai.gajiBersih}
+                  </td>
+               </tr>
+            `);
+
+            nomor++;
+         }
+      </script>
+   </table>
+</body>
+
+</html>
