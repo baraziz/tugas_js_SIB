@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+
+   <form action="" id="form">
+      <table cellpadding="10" cellspacing="0" style="margin: 5px auto 5px 50px;">
+         <tr>
+            <td>
+               <label for="nama">Nama</label>
+            </td>
+            <td>
+               <input type="text" name="nama" id="nama">
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <label for="produk">Produk</label>
+            </td>
+            <td>
+               <select name="produk" id="produk">
+                  <option value="" disabled selected>Pilih Produk</option>
+               </select>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <label for="jumlah">Jumlah Barang</label>
+            </td>
+            <td>
+               <input type="number" name="jumlah" id="jumlah">
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2" align="center">
+               <input type="button" name="proses" value="BELI" onclick="transaksi()">
+            </td>
+         </tr>
+      </table>
+
+   </form>
+
+   <script>
+      const produks = [["TV", "2 Juta"], ["AC", "3 Juta"], ["Kulkas", "4 Juta"]];
+      const element = document.getElementById("produk")
+
+      let option;
+      let node;
+
+      for (const produk of produks) {
+         option = document.createElement("option");
+         node = document.createTextNode(`${produk[0]} - ${produk[1]}`);
+         option.appendChild(node);
+         option.value = produk[0]
+         element.appendChild(option);
+      }
+   </script>
+   <script src="js/script.js"></script>
+</body>
+
+</html>
