@@ -6,9 +6,66 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
+   <script src="js/code.jquery.com_jquery-3.7.1.js"></script>
 </head>
 
 <body>
+
+   <button id="tampilkanProfile">
+      <h3>PROFILE</h3>
+   </button>
+   <button id="tampilkanMotoHidup">
+      <h3>Moto Hidup</h3>
+   </button>
+   <button id="tampilkanKeahlian">
+      <h3>Keahlian</h3>
+   </button>
+
+   <div id="profile" class="awal">
+      <h3>
+         PROFILE
+      </h3>
+      <p>
+         Nama: Baharudin Bariq Aziz <br>
+         Mitra MSIB : PT Hendevane Indonesia <br>
+         Kelas : Fullstack Web Development
+      </p>
+   </div>
+   <div id="motoHidup" class="awal">
+      <h3>
+         Moto Hidup
+      </h3>
+      <p>
+         Berdamai dengan keadaan
+      </p>
+   </div>
+   <div id="keahlian" class="awal">
+      <h3>
+         Keahlian
+      </h3>
+      <p>
+         Bahasa Pemrograman : PHP
+      </p>
+   </div>
+
+   <script>
+      $(".awal").hide();
+      $("#tampilkanProfile").on("click", function () {
+         $("#profile").slideToggle("slow");
+         $("#motoHidup").hide("slow");
+         $("#keahlian").hide("slow");
+      });
+      $("#tampilkanMotoHidup").on("click", function () {
+         $("#profile").hide("slow");
+         $("#motoHidup").slideToggle("slow");
+         $("#keahlian").hide("slow");
+      });
+      $("#tampilkanKeahlian").on("click", function () {
+         $("#profile").hide("slow");
+         $("#motoHidup").hide("slow");
+         $("#keahlian").slideToggle("slow");
+      });
+   </script>
 
 </body>
 
